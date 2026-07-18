@@ -1,5 +1,22 @@
 import { User, UserRole, Meeting, MeetingStatus, ActionStatus, VoteType, RepositoryDoc } from './types.ts';
 
+// Mock data is dated relative to "today" so the demo always looks current,
+// regardless of when it's actually run.
+const pad = (n: number) => String(n).padStart(2, '0');
+
+const dateOffset = (days: number): string => {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+};
+
+const dateTimeOffset = (days: number, hours = 10, minutes = 0): string => {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  d.setHours(hours, minutes, 0, 0);
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:00`;
+};
+
 export const MOCK_USERS: User[] = [
   { 
     id: 'u1', 
@@ -60,16 +77,16 @@ export const MOCK_USERS: User[] = [
 ];
 
 export const MOCK_ACTIONS: any[] = [
-  { id: 'a1', task: 'Review B-BBEE Level 1 Strategy', owner: 'Sarah Van Der Merwe', deadline: '2024-06-15', status: ActionStatus.IN_PROGRESS, source: 'Meeting', lastUpdate: 'Draft circulated for comment.' },
-  { id: 'a2', task: 'Finalize SENS Announcement regarding acquisition', owner: 'Sipho Nkosi', deadline: '2024-05-20', status: ActionStatus.PENDING, source: 'Meeting', lastUpdate: 'Awaiting initial draft.' },
-  { id: 'a3', task: 'Update Social & Ethics Charter', owner: 'Priya Patel', deadline: '2024-07-01', status: ActionStatus.PENDING, source: 'Email', lastUpdate: 'Pending legal review.' },
+  { id: 'a1', task: 'Review B-BBEE Level 1 Strategy', owner: 'Sarah Van Der Merwe', deadline: dateOffset(3), status: ActionStatus.IN_PROGRESS, source: 'Meeting', lastUpdate: 'Draft circulated for comment.' },
+  { id: 'a2', task: 'Finalize SENS Announcement regarding acquisition', owner: 'Sipho Nkosi', deadline: dateOffset(-5), status: ActionStatus.PENDING, source: 'Meeting', lastUpdate: 'Awaiting initial draft.' },
+  { id: 'a3', task: 'Update Social & Ethics Charter', owner: 'Priya Patel', deadline: dateOffset(20), status: ActionStatus.PENDING, source: 'Email', lastUpdate: 'Pending legal review.' },
 ];
 
 export const INITIAL_MEETINGS: Meeting[] = [
   {
     id: 'm1',
     title: 'Q2 Board Meeting',
-    date: '2024-05-24T10:00:00',
+    date: dateTimeOffset(0, new Date().getHours(), new Date().getMinutes() + 30),
     status: MeetingStatus.LIVE,
     location: 'Sandton HQ / Online',
     complianceScore: 85,
@@ -84,7 +101,7 @@ export const INITIAL_MEETINGS: Meeting[] = [
   {
     id: 'm2',
     title: 'Social & Ethics Committee',
-    date: '2024-06-10T14:00:00',
+    date: dateTimeOffset(14, 14, 0),
     status: MeetingStatus.SCHEDULED,
     location: 'Cape Town Branch / Teams',
     agenda: []
@@ -92,11 +109,11 @@ export const INITIAL_MEETINGS: Meeting[] = [
 ];
 
 export const MOCK_DOCUMENTS: RepositoryDoc[] = [
-  { id: 'd1', title: 'Q1 Board Minutes - Signed', type: 'MINUTES', date: '2024-02-28', size: '2.4 MB', uploadedBy: 'Priya Patel' },
-  { id: 'd2', title: 'FY2024 Annual Financial Statements', type: 'FINANCIALS', date: '2024-03-15', size: '14.2 MB', uploadedBy: 'CFO' },
-  { id: 'd3', title: 'Social & Ethics Committee Charter v2', type: 'POLICY', date: '2023-11-10', size: '0.8 MB', uploadedBy: 'Priya Patel' },
-  { id: 'd4', title: 'Q2 Board Pack (Draft)', type: 'PACK', date: '2024-05-18', size: '45.1 MB', uploadedBy: 'Sarah Van Der Merwe' },
-  { id: 'd5', title: 'Remuneration Policy 2024', type: 'POLICY', date: '2024-01-20', size: '1.2 MB', uploadedBy: 'Priya Patel' },
+  { id: 'd1', title: 'Q1 Board Minutes - Signed', type: 'MINUTES', date: dateOffset(-86), size: '2.4 MB', uploadedBy: 'Priya Patel' },
+  { id: 'd2', title: 'FY2024 Annual Financial Statements', type: 'FINANCIALS', date: dateOffset(-70), size: '14.2 MB', uploadedBy: 'CFO' },
+  { id: 'd3', title: 'Social & Ethics Committee Charter v2', type: 'POLICY', date: dateOffset(-196), size: '0.8 MB', uploadedBy: 'Priya Patel' },
+  { id: 'd4', title: 'Q2 Board Pack (Draft)', type: 'PACK', date: dateOffset(-6), size: '45.1 MB', uploadedBy: 'Sarah Van Der Merwe' },
+  { id: 'd5', title: 'Remuneration Policy 2024', type: 'POLICY', date: dateOffset(-125), size: '1.2 MB', uploadedBy: 'Priya Patel' },
 ];
 
 export const PAST_MINUTES_MOCK = `

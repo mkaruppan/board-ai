@@ -250,8 +250,16 @@ const MeetingView: React.FC<MeetingViewProps> = ({ meeting, currentUser, users, 
               <Logo className="w-8 h-8" />
               <h1 className={`text-xl font-bold ${isInCamera ? 'text-white' : 'text-slate-900'}`}>{meeting.title}</h1>
           </div>
-          <button onClick={toggleInCamera} className={`px-4 py-2 rounded-full border ${isInCamera ? 'bg-red-600 text-white' : 'bg-white text-slate-600'}`}>{isInCamera ? 'IN CAMERA' : 'Enter In-Camera'}</button>
-          <button onClick={onLeave} className="text-slate-600">Leave</button>
+          <div className="flex items-center space-x-3">
+              <button onClick={toggleInCamera} className={`px-4 py-2 rounded-full border ${isInCamera ? 'bg-red-600 text-white' : 'bg-white text-slate-600'}`}>{isInCamera ? 'IN CAMERA' : 'Enter In-Camera'}</button>
+              {(currentUser.role === UserRole.CHAIRPERSON || currentUser.role === UserRole.SECRETARY) && (
+                  <button onClick={handleCloseMeeting} className="px-4 py-2 rounded-full border border-red-200 bg-red-50 text-red-600 font-medium hover:bg-red-100 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4" />
+                      <span>Close Meeting</span>
+                  </button>
+              )}
+              <button onClick={onLeave} className={isInCamera ? 'text-slate-300' : 'text-slate-600'}>Leave</button>
+          </div>
       </header>
       <div className="flex-1 flex">
           <nav className={`w-64 border-r ${isInCamera ? 'bg-slate-800 border-slate-700' : 'bg-white border-slate-200'}`}>
