@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuditLogEntry } from '../types';
+import { AuditLogEntry } from './types.ts';
 import { Shield, ChevronLeft, FileText, Lock, Activity } from 'lucide-react';
 
 interface AuditLogViewProps {

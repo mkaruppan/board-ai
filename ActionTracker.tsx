@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ActionItem, ActionStatus, User, UserRole } from '../types';
+import { ActionItem, ActionStatus, User, UserRole } from './types.ts';
 import { MessageSquare, Mail, Users, CheckCircle, Clock, AlertCircle, Filter, X, Edit, CheckCircle2, Plus } from 'lucide-react';
 
 interface ActionTrackerProps {

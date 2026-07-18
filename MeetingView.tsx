@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Meeting, AgendaItem, VoteType, User, UserRole, MeetingStatus } from '../types.ts';
+import { Meeting, AgendaItem, VoteType, User, UserRole, MeetingStatus } from './types.ts';
 import { Shield, Lock, Users, FileText, Gavel, AlertTriangle, CheckCircle2, ChevronRight, ChevronLeft, Download, Video, MicOff, AlertCircle, StopCircle, Sparkles, FileSignature, Printer, ChevronDown, Clock, User as UserIcon, MinusCircle, Eye, Check, X, Edit, ExternalLink } from 'lucide-react';
-import { checkComplianceAI, generatePostMeetingDocs } from '../services/geminiService.ts';
+import { checkComplianceAI, generatePostMeetingDocs } from './geminiService.ts';
 import Logo from './Logo.tsx';
 
 interface MeetingViewProps {

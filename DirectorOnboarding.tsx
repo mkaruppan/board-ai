@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { UserRole, User } from '../types';
+import { UserRole, User } from './types.ts';
 import { Shield, Upload, Check, ChevronLeft, FileCheck, Info, Save, Paperclip, FileText, Camera, User as UserIcon, X } from 'lucide-react';
 
 interface DirectorOnboardingProps {

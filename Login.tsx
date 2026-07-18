@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User } from '../types.ts';
+import { User } from './types.ts';
 import { Lock, Loader2, UserPlus, Mail, Key, Eye, EyeOff, AlertCircle, Info, Shield, CheckCircle } from 'lucide-react';
 import Logo from './Logo.tsx';
 

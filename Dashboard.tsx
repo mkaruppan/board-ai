@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Meeting, ActionItem, User, MeetingStatus, UserRole, RepositoryDoc } from '../types.ts';
+import { Meeting, ActionItem, User, MeetingStatus, UserRole, RepositoryDoc } from './types.ts';
 import ActionTracker from './ActionTracker.tsx';
 import { Calendar, Video, RefreshCw, PlusCircle, Check, Loader2, MessageSquare, Mail, Zap, Send, TrendingUp, AlertOctagon, UserCheck, FileCheck, CheckCircle2, FileText, LogOut, Edit, Lock, AlertTriangle, UserMinus, ShieldAlert, Snowflake, Unlock, FolderOpen, ListChecks, FileSearch, UserCog, Archive, Key } from 'lucide-react';
-import { planNextMeetingStrategy } from '../services/geminiService.ts';
-import { PAST_MINUTES_MOCK, LATEST_PACK_CONTENT } from '../constants.ts';
+import { planNextMeetingStrategy } from './geminiService.ts';
+import { PAST_MINUTES_MOCK, LATEST_PACK_CONTENT } from './constants.ts';
 
 interface DashboardProps {
   user: User;

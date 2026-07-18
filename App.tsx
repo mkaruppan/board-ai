@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import Login from './components/Login.tsx';
-import Dashboard from './components/Dashboard.tsx';
-import MeetingView from './components/MeetingView.tsx';
-import DirectorOnboarding from './components/DirectorOnboarding.tsx';
-import AuditLogView from './components/AuditLogView.tsx';
-import CalendarView from './components/CalendarView.tsx';
-import RepositoryView from './components/RepositoryView.tsx';
+import Login from './Login.tsx';
+import Dashboard from './Dashboard.tsx';
+import MeetingView from './MeetingView.tsx';
+import DirectorOnboarding from './DirectorOnboarding.tsx';
+import AuditLogView from './AuditLogView.tsx';
+import CalendarView from './CalendarView.tsx';
+import RepositoryView from './RepositoryView.tsx';
 import { User, Meeting, ActionItem, ActionStatus, AuditLogEntry, UserRole, RepositoryDoc, MeetingStatus } from './types.ts';
 import { MOCK_ACTIONS, INITIAL_MEETINGS, MOCK_USERS, MOCK_DOCUMENTS } from './constants.ts';
 import { MessageSquare, Mail, CheckCircle, UserCheck, AlertTriangle, UserMinus, Snowflake, CalendarCheck, Trash2, Edit, PlusCircle, Key, Lock } from 'lucide-react';

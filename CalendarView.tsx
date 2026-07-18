@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Meeting, User, UserRole, MeetingStatus } from '../types';
+import { Meeting, User, UserRole, MeetingStatus } from './types.ts';
 import { Calendar, Clock, MapPin, Plus, ChevronLeft, Mail, CheckCircle, Video, Edit } from 'lucide-react';
 
 interface CalendarViewProps {
