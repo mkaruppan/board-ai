@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { User, UserRole, RepositoryDoc, DocType } from '../types';
+import { User, UserRole, RepositoryDoc, DocType } from './types.ts';
 import { FolderOpen, FileText, Download, Upload, ChevronLeft, Search, Filter, ShieldCheck, Briefcase, Trash2, CheckCircle2, X } from 'lucide-react';
 
 interface RepositoryViewProps {

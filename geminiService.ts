@@ -1,5 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { AgendaItem } from "../types.ts";
+import { AgendaItem } from "./types.ts";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
